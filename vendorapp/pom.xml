@@ -33,6 +33,12 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>3.0.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.7.0</version>
@@ -128,6 +134,12 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<!-- Jasypt (Java Simple Encryption) Plugin-->
+			<plugin>
+				<groupId>com.github.ulisesbocchio</groupId>
+				<artifactId>jasypt-maven-plugin</artifactId>
+				<version>3.0.5</version>
 			</plugin>
 			<!-- MapStruct + Lombok annotation processor -->
 			<plugin>

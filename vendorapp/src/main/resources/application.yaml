@@ -10,8 +10,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/vendor
-    username: postgres
-    password: '#Musa5254'
+    username: ENC(mqLYHw+P/hmbzOk8lO4+WE7XIhjY4KyC6UkIdd+Xc47SiBmvOosBKfBYbTYj9idI)
+    password: ENC(S9BovB0WRlf1OhlknTyiPdyQwfiXsecyl62gSrnxakSjUwDeK4qZdfKUV9VQAeVh)
     driver-class-name: org.postgresql.Driver
 
   jpa:
