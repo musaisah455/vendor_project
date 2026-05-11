@@ -171,8 +171,8 @@ src/main/java/com/example/vendor/
 - ├── mapper/
 - ├── repository/
 - ├── service/
-- │   &ensp; &ensp; &ensp;├── impl/
-- │   &ensp; &ensp; &ensp;└── VendorService.java
+- &ensp;│   &ensp; &ensp; &ensp;├── impl/
+- &ensp;│   &ensp; &ensp; &ensp;└── VendorService.java
 - ├── VendorApplication.java
 - └── ...
 
