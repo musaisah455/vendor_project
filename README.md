@@ -61,8 +61,8 @@ src/main/java/com/example/vendor/
 
 1. Clone the repository:
 ```bash
-   git clone <your-repository-url>
-   cd vendor-application
+   https://github.com/musaisah455/vendor_project.git
+   cd vendor_project
 
 ```
 
