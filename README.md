@@ -156,7 +156,7 @@ java -jar target/vendor-application-1.0.0.jar --spring.profiles.active=prod
 ````
 ## Keycloak
 
-## Create Users and Mapping Roles (ADMIN, USER and MANAGER)
+## Create Users and Mapped Them to Roles (ADMIN, USER and MANAGER)
 
 Realm Roles (Recommended for this project)
 
