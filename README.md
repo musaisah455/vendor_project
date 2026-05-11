@@ -11,17 +11,35 @@ A **production-ready** Spring Boot REST API for managing vendors with JWT OAuth2
 ![Keycloak](https://webvelocity.gr/wp-content/uploads/2023/01/kc.png)
 
 ## Table of Contents
+- [Project Structure](#-project-structure)
 - [Technologies & Features](#-technologies--features)
-- [Prerequisites](#-prerequisites)
 - [Installation & Setup](#-installation--setup)
 - [Database Setup](#-database-setup-postgresql)
 - [Running the Application](#-running-the-application)
 - [API Endpoints](#-api-endpoints)
 - [Authentication](#-authentication)
+- [Keycloak](#-keycloak)
 - [Project Structure](#-project-structure)
 - [Contributing](#-contributing)
 - [License](#-license)
 
+## Project Structure
+
+src/main/java/com/example/vendor/
+- ├── config/
+- ├── controller/
+- ├── dto/
+- ├── entity/
+- ├── exception/
+- ├── mapper/
+- ├── repository/
+- ├── services/
+- &ensp;│   &ensp; &ensp; &ensp;├── impl/
+- &ensp;│   &ensp; &ensp; &ensp;└── VendorService.java
+- ├── VendorApplication.java
+- └── ...
+
+## Technologies/Features
 
 - **Java 21** + **Spring Boot 3.3**
 - **PostgreSQL** (Production) + H2 (Development)
@@ -32,20 +50,10 @@ A **production-ready** Spring Boot REST API for managing vendors with JWT OAuth2
 - Pagination & Search support
 - RESTful API with proper HTTP status codes
 - Production-ready structure (profiles, logging, actuator)
-
-### Key Features
-
-- Complete CRUD operations for Vendors
 - Input validation with meaningful error messages
 - Secure JWT authentication
 - Responsive search and pagination
 - Clean architecture (Layered + DTO + Mapper)
-
-## Prerequisites
-
-- **Java 21** or higher
-- **Maven** 3.8+
-- **PostgreSQL** 15+ (for production)
 - Docker (optional but recommended)
 - OAuth2 Authorization Server (Keycloak, Auth0, Spring Authorization Server, etc.)
 
@@ -92,7 +100,7 @@ status          VARCHAR(20) NOT NULL DEFAULT 'ACTIVE',
 created_at      TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
 updated_at      TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
 
-#CONSTRAINT chk_vendor_status CHECK (status IN ('ACTIVE', 'INACTIVE', 'SUSPENDED'))
+CONSTRAINT chk_vendor_status CHECK (status IN ('ACTIVE', 'INACTIVE', 'SUSPENDED'))
 );
 
 CREATE INDEX idx_vendors_email ON vendors(email);
@@ -146,6 +154,52 @@ java -jar target/vendor-application-1.0.0.jar --spring.profiles.active=prod
 "status": "ACTIVE"
 }
 ````
+## Keycloak
+
+## Create Users and Mapping Roles (ADMIN, USER and MANAGER)
+
+Realm Roles (Recommended for this project)
+
+1. Go to Realm roles → Create role
+2. Create these three roles:
+
+| Role  Name                      | Description
+|:--------------------------------| :---
+| MANAGER | Limited access (write, read and create)
+| ADMIN | Full access (read, write, create and delete)
+| USER | Limited access (read only) 
+
+## Create Users
+### Admin User
+
+1. Go to Users → Create a new user
+- Username: admin
+- Email: admin@vendor.com
+- First Name: System
+- Last Name: Administrator
+- Email Verified: On
+
+2. Click Create
+3. Go to Credentials tab → Set Password (admin123) → Temporary: Off
+3. Go to Role mapping tab → Assign ADMIN role
+
+Regular User
+
+1. Create user:
+- Username: user
+- Email: user@vendor.com
+- Set password: user123
+
+2. Assign USER role
+
+Manager
+
+1. Create manager:
+- Username: manager
+- Email: manager@vendor.com
+- Set password: manager123
+
+2. Assign MANAGER role
 
 ## Authentication
 ### This API is secured with OAuth2 JWT.
@@ -159,22 +213,6 @@ java -jar target/vendor-application-1.0.0.jar --spring.profiles.active=prod
 ````bash
 curl -H "Authorization: Bearer eyJhbGciOi..." http://localhost:8080/api/v1/vendors
 ````
-
-## Project Structure
-
-src/main/java/com/example/vendor/
-- ├── config/
-- ├── controller/
-- ├── dto/
-- ├── entity/
-- ├── exception/
-- ├── mapper/
-- ├── repository/
-- ├── service/
-- &ensp;│   &ensp; &ensp; &ensp;├── impl/
-- &ensp;│   &ensp; &ensp; &ensp;└── VendorService.java
-- ├── VendorApplication.java
-- └── ...
 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request.
