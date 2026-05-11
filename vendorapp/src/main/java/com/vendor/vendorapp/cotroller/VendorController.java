@@ -64,7 +64,7 @@ public class VendorController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('MANAGER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Delete vendor")
     public ResponseEntity<Void> delete(@PathVariable UUID id) {
         vendorService.deleteVendor(id);
@@ -72,7 +72,7 @@ public class VendorController {
     }
 
     @DeleteMapping
-    @PreAuthorize("hasRole('MANAGER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Delete all vendors")
     public ResponseEntity<Void> deleteAllVendors() {
         vendorService.deleteAllVendors();
