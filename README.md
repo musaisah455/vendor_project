@@ -39,23 +39,23 @@ src/main/java/com/example/vendor/
 - ├── VendorApplication.java
 - └── ...
 
-## Technologies/Features
+## Technologies & Features
 
 - **Java 21** + **Spring Boot 3.3**
 - **PostgreSQL** (Production) + H2 (Development)
 - **OAuth2 Resource Server** with JWT Bearer Token
 - **DTO Pattern** with Jakarta Bean Validation
 - **MapStruct** for entity mapping
-- Global Exception Handling
-- Pagination & Search support
-- RESTful API with proper HTTP status codes
-- Production-ready structure (profiles, logging, actuator)
-- Input validation with meaningful error messages
-- Secure JWT authentication
-- Responsive search and pagination
-- Clean architecture (Layered + DTO + Mapper)
-- Docker (optional but recommended)
-- OAuth2 Authorization Server (Keycloak, Auth0, Spring Authorization Server, etc.)
+- **Global Exception Handling**
+- **Pagination** & Search support
+- **RESTful API** with proper HTTP status codes
+- **Production-ready** structure (profiles, logging, actuator)
+- **Input validation** with meaningful error messages
+- **Secure JWT authentication**
+- **Responsive** search and **pagination**
+- **Clean architecture** (Layered + DTO + Mapper)
+- **Docker** (optional but recommended)
+- **OAuth2 Authorization Server** (Keycloak, Auth0, Spring Authorization Server, etc.)
 
 ## Installation & Setup
 
@@ -70,7 +70,7 @@ src/main/java/com/example/vendor/
 
 ### Option 1: Docker (Recommended)
 
-````
+````bash
 docker run --name vendor-postgres \
 -e POSTGRES_DB=vendor_db \
 -e POSTGRES_USER=vendor_user \
