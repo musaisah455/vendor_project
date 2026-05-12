@@ -39,7 +39,7 @@ src/main/java/com/example/vendor/
 - ├── VendorApplication.java
 - └── ...
 
-## Technologies/Features
+## Technologies & Features
 
 - **Java 21** + **Spring Boot 3.3**
 - **PostgreSQL** (Production) + H2 (Development)
