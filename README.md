@@ -137,7 +137,7 @@ java -jar target/vendor-application-1.0.0.jar --spring.profiles.active=prod
 |`GET` | `/api/v1/vendors`      | `Get all vendors (paginated)` | ________________
 |`GET` | `/api/v1/vendors/{id}` | `Get vendor by ID`            | ________________
 |`PUT` | `/api/v1/vendors/{id}` | `Update vendor`               | `VendorRequestDto`
-|`DELETE` | `/api/v1/vendors/{id}` | `Delete vendor`               | ______
+|`DELETE` | `/api/v1/vendors/{id}` | `Delete vendor`               | ________________
 |`DELETE` | `/api/v1/vendors`      | `Delete all vendors`          | ______
 
 ### Query Parameters for GET All:
