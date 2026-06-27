@@ -1,4 +1,4 @@
-package com.vendor.vendorapp.cotroller;
+package com.vendor.vendorapp.controller;
 
 import com.vendor.vendorapp.dtos.VendorRequestDto;
 import com.vendor.vendorapp.dtos.VendorResponseDto;
