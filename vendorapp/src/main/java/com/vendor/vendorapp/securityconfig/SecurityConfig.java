@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.client.RestClient;
 
 import java.util.Collection;
 import java.util.List;
@@ -80,4 +81,11 @@ public class SecurityConfig {
                 .components(new Components().addSecuritySchemes("Bearer Authentication",
                         new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
     }
+
+    // config/AppConfig.java
+
+        @Bean
+        public RestClient restClient() {
+            return RestClient.create();
+        }
 }

@@ -17,6 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import static org.springframework.data.web.config.EnableSpringDataWebSupport.PageSerializationMode.VIA_DTO;
@@ -78,4 +80,25 @@ public class VendorController {
         vendorService.deleteAllVendors();
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/combined")
+    public Map<String, Object> getVendorsAndPosts() {
+        return ResponseEntity.ok(vendorService.getVendorsAndPosts()).getBody();
+    }
+
+    @GetMapping("/combined/{id}")
+    public Object getExternalPostById(@PathVariable Long id) {
+        return ResponseEntity.ok(vendorService.getExternalPostById(id));
+    }
+/**
+    @GetMapping("/posts")
+    public List<Object> getExternalPosts() {
+        return vendorService.getExternalPosts();
+    }
+
+    @GetMapping("/posts/{postId}")
+    public Object getExternalPostById(@PathVariable Long postId) {
+        return vendorService.getExternalPostById(postId);
+    }*/
+
 }
