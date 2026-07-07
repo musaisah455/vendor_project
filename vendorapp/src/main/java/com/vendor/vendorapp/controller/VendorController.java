@@ -86,9 +86,9 @@ public class VendorController {
         return ResponseEntity.ok(vendorService.getVendorsAndPosts()).getBody();
     }
 
-    @GetMapping("/combined/{id}")
-    public Object getExternalPostById(@PathVariable Long id) {
-        return ResponseEntity.ok(vendorService.getExternalPostById(id));
+    @GetMapping("/combined/{combinedId}")
+    public Object getExternalPostById(@PathVariable Long combinedId) {
+        return ResponseEntity.ok(vendorService.getExternalPostById(combinedId));
     }
 /**
     @GetMapping("/posts")
