@@ -101,4 +101,13 @@ public class VendorController {
         return vendorService.getExternalPostById(postId);
     }*/
 
+    @GetMapping("/books")
+    public List<Object> getExternalBooks() {
+        return vendorService.getExternalBooks();
+    }
+
+    @GetMapping("/totalbooks")
+    public Map<String, Object> getVendorsAndBooks() {
+        return vendorService.getVendorsAndBooks();
+    }
 }

@@ -25,4 +25,8 @@ public interface VendorService {
    // List<Object> getExternalPosts();
 
     //Object getExternalPostById(Long postId);
+
+    List<Object> getExternalBooks();
+
+    Map<String, Object> getVendorsAndBooks();
 }

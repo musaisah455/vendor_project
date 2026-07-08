@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -136,4 +135,38 @@ public class VendorServiceImpl implements VendorService {
                     .retrieve()
                     .body(Object.class);
         }*/
+
+        @Override
+        public List<Object> getExternalBooks() {
+            return restClient.get()
+                    .uri("https://restful-booker.herokuapp.com/booking")
+                    .retrieve()
+                    .body(new ParameterizedTypeReference<>() {
+                    });
+        }
+
+    @Override
+    public Map<String, Object> getVendorsAndBooks() {
+
+        // Get your vendors
+        Page<VendorResponseDto> vendorsPage = getAllVendors(Pageable.unpaged(), null);
+        List<VendorResponseDto> vendors = vendorsPage.getContent();
+
+        // Fetch posts using RestClient (clean way)
+        List<Object> books = restClient.get()
+                .uri("https://restful-booker.herokuapp.com/booking")
+                .retrieve()
+                .body(new ParameterizedTypeReference<>() {
+                });
+
+        // Combine both
+        Map<String, Object> response = new HashMap<>();
+        response.put("vendors", vendors);
+        response.put("books", books);
+        response.put("totalVendors", vendors.size());
+        response.put("totalBooks", books != null ? books.size() : 0);
+
+        return response;
     }
+
+}
